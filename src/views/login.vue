@@ -2,7 +2,7 @@
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" label-position="left" label-width="0px" class="login-form">
       <h3 class="title">
-        EL-ADMIN 后台管理系统
+        智能点单 后台管理系统
       </h3>
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
@@ -53,8 +53,8 @@ export default {
       codeUrl: '',
       cookiePass: '',
       loginForm: {
-        username: 'admin',
-        password: '123456',
+        username: process.env.NODE_ENV === 'development' ? 'admin' : '',
+        password: process.env.NODE_ENV === 'development' ? '123456' : '',
         rememberMe: false,
         code: '',
         uuid: ''
